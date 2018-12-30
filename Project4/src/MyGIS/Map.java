@@ -111,7 +111,7 @@ public class Map {
 	public double findAngle(Point3D gps1, Point3D gps2) {
 		MyCoords mc = new MyCoords();
 		double[] aed = mc.azimuth_elevation_dist(gps1, gps2);
-		return aed[0];
+		return  aed[0];
 
 	}
 
@@ -175,7 +175,8 @@ public class Map {
 		double [] aed = mc.azimuth_elevation_dist(p1, p2);
 //		System.out.println(aed[0]);
 		Map m = new Map(1386,642,"Ariel1.png");
-		Point3D p3 = m.pointInTime(p1,aed[2],aed[0]);
-		System.out.println(p3);
+		double angle = m.findAngle(p1, p2);
+//		Point3D p3 = m.pointInTime(p1,aed[2],aed[0]);
+		System.out.println(angle);
 	}
 }

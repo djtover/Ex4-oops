@@ -91,16 +91,16 @@ public class MyCoords implements coords_converter {
 		double r = Math.sqrt(Math.pow(radX, 2) + Math.pow(radY, 2) + Math.pow(p1.z(), 2));
 		double inclination = Math.acos(p1.z()/r);
 		double elevation = 90 - toDeg(inclination);
-//		double azimuth = Math.atan2(radX,radY);
-//		if(toDeg(azimuth)<0) {
-//		AED[0] = 360+toDeg(azimuth);
-//		}
-//		else {
-//			AED[0] = toDeg(azimuth);
-//		}
-		
-		double azimuth = Math.atan2(radY,radX);
+		double azimuth = Math.atan2(radX,radY);
+		if(toDeg(azimuth)<0) {
+		AED[0] = 360+toDeg(azimuth);
+		}
+		else {
 			AED[0] = toDeg(azimuth);
+		}
+		
+//		double azimuth = Math.atan2(radY,radX);
+//			AED[0] = toDeg(azimuth);
 		AED[1] = elevation;
 		AED[2] = r;
 

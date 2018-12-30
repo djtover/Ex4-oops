@@ -25,7 +25,6 @@ public class FromBoard{
 
 		for(int i=0;i<AL.size();i++) {
 			String[] userInfo = AL.get(i).split(cvsSplitBy);
-			//			double lat = Double.parseDouble(s)
 			if(userInfo[0].equals("B")) {
 				double lat1 = Double.parseDouble(userInfo[2]);
 				double lon1 = Double.parseDouble(userInfo[3]);

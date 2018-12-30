@@ -69,6 +69,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 	private ArrayList<Ghost> pointsGhost = new ArrayList<Ghost>();
 	private static int c = 1;
 	private boolean isResized;
+	private int runTime;
 
 
 	/**
@@ -82,6 +83,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		isResized = false;
 		isPlayer = false;
 		playerAdded = false;
+		runTime=0;
 		initGUI(imageName);		
 		this.addMouseListener(this);
 
@@ -113,10 +115,15 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
+				if(!pointsFruit.isEmpty()) {
 				isPlayer = true;
 				isRun=false;
 				isResized = false;
 				playerAdded = false;
+				}
+				else {
+					System.out.println("Please enter game first");
+				}
 
 			}
 		});
@@ -133,8 +140,13 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				isRun =true;
 				isResized = false;
 				isPlayer = false;
-
-				repaint();
+				if(playerAdded) {
+				Run();
+				}
+				else {
+					System.out.println("Please enter player first");
+				}
+				
 			}
 		});
 		//		this is a listener if the Clear button was clicked
@@ -153,6 +165,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				pointsPack.clear();
 				pointsFruit.clear();
 				pointsBlock.clear();
+				pointsGhost.clear();
 				repaint();
 			}
 		});
@@ -184,6 +197,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 					File selectedFile = jfc.getSelectedFile();
 					if (selectedFile.getAbsoluteFile().toString().endsWith(".csv")) {
 						play1 = new Play(selectedFile.getAbsoluteFile().toString()); 
+						play1.setIDs(327339701);
 						FromBoard board = new FromBoard(play1.getBoard());
 
 						updateBoard(board);
@@ -251,54 +265,95 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			}
 
 		}
+		if(isRun) {
+			Point3D point = new Point3D(x,y);
+			Point3D newPoint=new Point3D (m.Pixels2Coords(point, getWidth(), getHeight()));
+			double angle = m.findAngle(player1.getP(), newPoint);
+			play1.rotate(angle);
+		}
 		if(playerAdded) {
 			int ra = 25;
 			Point3D drawPlayer =  m.Coords2Pixels(player1.getP());
-			x = drawPlayer.ix() - (ra/2);
-			y = drawPlayer.iy() - (ra/2);
+			int dx = drawPlayer.ix() - (ra/2);
+			int dy = drawPlayer.iy() - (ra/2);
 			g.setColor(Color.BLUE);
-			g.fillOval(x, y, ra, ra);
+			g.fillOval(dx, dy, ra, ra);
 		}
+
+
 		//		add all the Packmen
-		for(int i = 0 ; i<pointsPack.size();i++) {
-			int r = 30;
-			Point3D pointDraw =  m.Coords2Pixels(pointsPack.get(i).getP());
-			int px = pointDraw.ix() - (r/2);
-			int py = pointDraw.iy() - (r/2);
-			g.setColor(Color.YELLOW);
-			g.fillOval(px, py, r, r);
-		}
+			for(int i=0; i<pointsBlock.size();i++) {
+				Point3D p1Pix = m.Coords2Pixels(pointsBlock.get(i).getBL());
+				Point3D p2Pix = m.Coords2Pixels(pointsBlock.get(i).getTR());
+				int dx = Math.abs(p2Pix.ix() - p1Pix.ix());
+				int dy = Math.abs(p2Pix.iy() - p1Pix.iy());
+				g.setColor(Color.BLACK);
+				g.fillRect(p1Pix.ix(),p2Pix.iy(),dx,dy);
+			}
+			for(int i = 0 ; i<pointsPack.size();i++) {
+				int r = 30;
+				Point3D pointDraw =  m.Coords2Pixels(pointsPack.get(i).getP());
+				int px = pointDraw.ix() - (r/2);
+				int py = pointDraw.iy() - (r/2);
+				
+				g.setColor(Color.YELLOW);
+				g.fillOval(px, py, r, r);
+			}
+			
+			
+			
 		//		add all the Fruit
-		for(int i = 0 ; i<pointsFruit.size();i++) {
-			int r = 10;
-			Point3D pointDraw =  m.Coords2Pixels(pointsFruit.get(i).getP());
-			int px = pointDraw.ix() - (r/2);
-			int py = pointDraw.iy() - (r/2);
-			g.setColor(Color.MAGENTA);
-			g.fillOval(px, py, r, r);
+			for(int i = 0 ; i<pointsFruit.size();i++) {
+				int r = 10;
+				Point3D pointDraw =  m.Coords2Pixels(pointsFruit.get(i).getP());
+				int px = pointDraw.ix()-(r/2);
+				int py = pointDraw.iy() - (r/2);
+				
+				g.setColor(Color.MAGENTA);
+				g.fillOval(px, py, r, r);
+			}
+		
+			for(int i = 0 ; i<pointsGhost.size();i++) {
+				int r = 15;
+				Point3D pointDraw =  m.Coords2Pixels(pointsGhost.get(i).getP());
+				int px = pointDraw.ix() - (r/2);
+				int py = pointDraw.iy() - (r/2);
+				g.setColor(Color.RED);
+				g.fillOval(px, py, r, r);
 
-		}
-		for( int i=0; i<pointsBlock.size();i++) {
-			Point3D p1Pix = m.Coords2Pixels(pointsBlock.get(i).getBL());
-			Point3D p2Pix = m.Coords2Pixels(pointsBlock.get(i).getTR());
-			int dx = Math.abs(p2Pix.ix() - p1Pix.ix());
-			int dy = Math.abs(p2Pix.iy() - p1Pix.iy());
-			g.setColor(Color.BLACK);
-			g.fillRect(p1Pix.ix(),p2Pix.iy(),dx,dy);
-		}
-
-		for(int i = 0 ; i<pointsGhost.size();i++) {
-			int r = 15;
-			Point3D pointDraw =  m.Coords2Pixels(pointsGhost.get(i).getP());
-			int px = pointDraw.ix() - (r/2);
-			int py = pointDraw.iy() - (r/2);
-			g.setColor(Color.RED);
-			g.fillOval(px, py, r, r);
-
-		}
+			}
 
 	}
 
+	private void Run() {
+		Map m = new Map(getWidth(),getHeight(),"Ariel1.png");
+		play1.start();
+		play1.rotate(0);
+		DrawBoard db = new DrawBoard(this);
+		Thread t = new Thread(db);
+		t.start();
+		
+		
+	}
+	public void setRun(boolean isRun) {
+		this.isRun = isRun;
+	}
+
+	public void setRunTime(int runTime) {
+		this.runTime = runTime;
+	}
+
+	public Play getPlay1() {
+		return play1;
+	}
+
+	public ArrayList<Fruit> getPointsFruit() {
+		return pointsFruit;
+	}
+
+	public int getRunTime() {
+		return runTime;
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent arg) {
@@ -359,7 +414,11 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		// TODO Auto-generated method stub
 
 	}
-	private void updateBoard(FromBoard board) {
+	public void updateBoard(FromBoard board) {
+		pointsPack.clear();
+		pointsFruit.clear();
+		pointsBlock.clear();
+		pointsGhost.clear();
 		for(int i=0;i<board.getALP().size();i++) {
 			pointsPack.add(board.getALP().get(i));
 		}
@@ -373,6 +432,13 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			pointsGhost.add(board.getALG().get(i));
 		}
 		player1 = board.getM();
+	}
+	public double getTime(String stats) {
+		String split = ",";
+		String[] userInfo = stats.split(split);
+		String ans = userInfo[1];
+		ans=ans.substring(11);
+		return Double.parseDouble(ans);
 	}
 
 }
