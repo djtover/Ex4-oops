@@ -12,13 +12,19 @@ import MyCoords.MyCoords;
  *
  */
 public class Map {
+	private final Point3D RT = new Point3D(32.105728,35.212416,650);
+	private final Point3D RB = new Point3D(32.101898,35.212416,650);
+	private final Point3D LT = new Point3D(32.105728,35.202369,650);
+	private final Point3D LB = new Point3D(32.101898,35.202369,650);
+	private final double diffLat = .003830;
+	private final double diffLon = .010047;
 
-	private final Point3D RT = new Point3D(32.105886,35.212337,650);
-	private final Point3D RB = new Point3D(32.101900,35.212337,650);
-	private final Point3D LT = new Point3D(32.105886,35.202424,650);
-	private final Point3D LB = new Point3D(32.101900,35.202424,650);
-	private final double diffLat = .003986;
-	private final double diffLon = .009913;
+//	private final Point3D RT = new Point3D(32.105886,35.212337,650);
+//	private final Point3D RB = new Point3D(32.101900,35.212337,650);
+//	private final Point3D LT = new Point3D(32.105886,35.202424,650);
+//	private final Point3D LB = new Point3D(32.101900,35.202424,650);
+//	private final double diffLat = .003986;
+//	private final double diffLon = .009913;
 
 	private String myImage;
 	private double latPerHeight;

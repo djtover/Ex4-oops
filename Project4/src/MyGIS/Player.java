@@ -13,6 +13,19 @@ public class Player {
 		this.weight = Weight;
 		id=0;
 	}
+	public Player() {
+		p= new Point3D(0,0,0);
+		this.speed = 0;
+		this.weight = 0;
+		id=0;
+	}
+	public Player(Player other) {
+		this.p = other.getP();
+		this.speed = other.getSpeed();
+		this.weight = other.getWeight();
+		id = 0;
+				
+	}
 	public int getId() {
 		return id;
 	}
@@ -35,7 +48,7 @@ public class Player {
 		this.weight = weight;
 	}
 	public String toString() {
-		return(" Packman: "+ p+" Speed: "+ speed+ " ID: "+id);
+		return(" Player: "+ p+" Speed: "+ speed+ " ID: "+id);
 	}
 	
 }

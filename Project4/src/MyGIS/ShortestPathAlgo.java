@@ -115,10 +115,10 @@ public class ShortestPathAlgo {
 			}
 		}
 
-		Game newG = new Game(alp , alf);
-		newG.setTime(topTime);
-		System.out.println("Time it takes to run algo in seconds is: " + topTime);
-		return newG;
+//		Game newG = new Game(alp , alf);
+//		newG.setTime(topTime);
+//		System.out.println("Time it takes to run algo in seconds is: " + topTime);
+		return null;
 
 	}
 	public Solution getSolution() {

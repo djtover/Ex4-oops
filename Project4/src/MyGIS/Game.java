@@ -20,12 +20,34 @@ public class Game {
 
 	private ArrayList<Fruit> ALF;
 	private ArrayList<Packman> ALP;
+	private ArrayList<Ghost> ALG;
+	private ArrayList<Block> ALB;
+	private Player p;
 	private double time;
 	public Game() {
 		this.ALF = new ArrayList<Fruit>();
 		this.ALP = new ArrayList<Packman>();
+		this.ALG = new ArrayList<Ghost>();
+		this.ALB = new ArrayList<Block>();
+		this.p = new Player();
 		time = 0;
 		
+	}
+	public Game(Game g) {
+		this.ALF = g.getALF();
+		this.ALP = g.getALP();
+		this.ALB = g.getALB();
+		this.ALG = g.getALG();
+		p = g.getPlayer();
+	}
+	public ArrayList<Ghost> getALG() {
+		return ALG;
+	}
+	public ArrayList<Block> getALB() {
+		return ALB;
+	}
+	public Player getPlayer() {
+		return p;
 	}
 	/**
 	 * This is constuctor that can receive a csv File and convert it to a game
@@ -43,10 +65,6 @@ public class Game {
 	}
 	public void setTime(double time) {
 		this.time = time;
-	}
-	public Game(ArrayList<Packman> alp , ArrayList<Fruit> alf) {
-		this.ALF = new ArrayList<Fruit>(alf);
-		this.ALP = new ArrayList<Packman>(alp);
 	}
 
 	public ArrayList<Fruit> getALF() {

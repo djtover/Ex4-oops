@@ -20,8 +20,8 @@ public class Stam {
 			
 			
 			Statement statement = connection.createStatement();
-			String s = "C:\\Users\\djtov\\Downloads\\Ex4_OOP\\dataEx4_OOP_example1.csv";
-			double d = s.hashCode();
+//			String s = "C:\\Users\\djtov\\Downloads\\Ex4_OOP\\dataEx4_OOP_example1.csv";
+//			double d = s.hashCode();
 			//select data
 			String allCustomersQuery = "SELECT * FROM logs" ;
 			ResultSet resultSet = statement.executeQuery(allCustomersQuery);
