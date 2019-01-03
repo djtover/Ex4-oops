@@ -14,7 +14,6 @@ public class DrawBoard implements Runnable{
 	public void run() {
 		// TODO Auto-generated method stub
 		double time=100000;
-		double second = 1000;
 		double totalTime = mw.getTime(mw.getPlay1().getStatistics());
 		while( !mw.getPointsFruit().isEmpty() && totalTime<time ) {
 //			mw.repaint();

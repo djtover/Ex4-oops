@@ -111,7 +111,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		MenuItem RunMenu = new MenuItem("Run");
 		MenuItem ClearMenu = new MenuItem("Clear");
 		Menu menu2 = new Menu("Examples");
-//		MenuItem fromCsv = new MenuItem ("Import CSV File");
+		//		MenuItem fromCsv = new MenuItem ("Import CSV File");
 		MenuItem example1 = new MenuItem("Example 1");
 		MenuItem example2 = new MenuItem("Example 2");
 		MenuItem example3 = new MenuItem("Example 3");
@@ -122,7 +122,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		MenuItem example8 = new MenuItem("Example 8");
 		MenuItem example9 = new MenuItem("Example 9");
 
-		
+
 
 		//		this is a listener if the Packman button was clicked
 
@@ -132,10 +132,10 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				if(!pointsFruit.isEmpty()) {
-				isPlayer = true;
-				isRun=false;
-				isResized = false;
-				playerAdded = false;
+					isPlayer = true;
+					isRun=false;
+					isResized = false;
+					playerAdded = false;
 				}
 				else {
 					System.out.println("Please enter game first");
@@ -157,12 +157,12 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				isResized = false;
 				isPlayer = false;
 				if(playerAdded) {
-				Run();
+					Run();
 				}
 				else {
 					System.out.println("Please enter player first");
 				}
-				
+
 			}
 		});
 		//		this is a listener if the Clear button was clicked
@@ -177,7 +177,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				repaint();
 			}
 		});
-		
+
 		example1.addActionListener(new ActionListener() {
 
 			@Override
@@ -185,16 +185,16 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example1.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example1.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
-		
+
 		example2.addActionListener(new ActionListener() {
 
 			@Override
@@ -202,16 +202,16 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example2.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example2.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
-		
+
 		example3.addActionListener(new ActionListener() {
 
 			@Override
@@ -219,12 +219,12 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example3.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example3.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
@@ -235,12 +235,12 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example4.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example4.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
@@ -251,12 +251,12 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example5.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example5.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
@@ -267,16 +267,16 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example6.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example6.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
-		
+
 		example6.addActionListener(new ActionListener() {
 
 			@Override
@@ -284,12 +284,12 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example6.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example6.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
@@ -300,16 +300,16 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example7.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example7.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
-		
+
 		example8.addActionListener(new ActionListener() {
 
 			@Override
@@ -317,12 +317,12 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example8.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example8.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
@@ -333,57 +333,18 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-//				repaint();
-						play1 = new Play("data/Ex4_OOP_example9.csv");
-						play1.setIDs(327339701);
-						FromBoard board = new FromBoard(play1.getBoard());
-						updateBoard(board);
-						repaint();
+				//				repaint();
+				play1 = new Play("data/Ex4_OOP_example9.csv");
+				play1.setIDs(327339701);
+				FromBoard board = new FromBoard(play1.getBoard());
+				updateBoard(board);
+				repaint();
 
 			}
 		});
-		
-		
-		
-		//		this is a listener if the From Csv button was clicked
 
-//		fromCsv.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent arg0) {
-//				// TODO Auto-generated method stub
-//				falseEverything();
-//				clear();
-//				repaint();
-//
-//
-//
-//				JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-//
-//				int returnValue = jfc.showOpenDialog(null);
-//				// int returnValue = jfc.showSaveDialog(null);
-//
-//				if (returnValue == JFileChooser.APPROVE_OPTION) {
-//					File selectedFile = jfc.getSelectedFile();
-//					if (selectedFile.getAbsoluteFile().toString().endsWith(".csv")) {
-//						play1 = new Play(selectedFile.getAbsoluteFile().toString());
-//						play1.setIDs(327339701);
-//						FromBoard board = new FromBoard(play1.getBoard());
-//
-//						updateBoard(board);
-//
-//
-//
-//
-//						repaint();
-//					}	
-//					else {
-//						System.out.println("This is not a csv file");
-//					}
-//
-//				}
-//			}
-//		});
+
+
 
 
 
@@ -399,7 +360,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		menu2.add(example7);
 		menu2.add(example8);
 		menu2.add(example9);
-//		menu2.add(fromCsv);
 		menu1.add(PlayerMenu);
 		menu1.add(RunMenu);
 		menu1.add(ClearMenu);
@@ -429,7 +389,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			Point3D newPoint=new Point3D (m.Pixels2Coords(point, getWidth(), getHeight()));
 			//			if it is putting down packmen on the screen then make a new packman and save it to the arraylist of packmen
 			if(isPlayer) {
-//				System.out.println(newPoint);
 				play1.setInitLocation(newPoint.x(), newPoint.y());
 				player1.setP(newPoint);
 				playerAdded = true;
@@ -443,105 +402,29 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			double angle = m.findAngle(player1.getP(), newPoint);
 			play1.rotate(angle);
 		}
-		for(int i=0; i<pointsBlock.size();i++) {
-			Point3D p1Pix = m.Coords2Pixels(pointsBlock.get(i).getBL());
-			Point3D p2Pix = m.Coords2Pixels(pointsBlock.get(i).getTR());
-			int dx = Math.abs(p2Pix.ix() - p1Pix.ix());
-			int dy = Math.abs(p2Pix.iy() - p1Pix.iy());
-			g.setColor(Color.BLACK);
-			g.fillRect(p1Pix.ix(),p2Pix.iy(),dx,dy);
-		}
-		
+		drawBlocks(g);
+
 		if(playerAdded) {
-			int ra = 25;
-			Point3D drawPlayer =  m.Coords2Pixels(player1.getP());
-			int dx = drawPlayer.ix() - (ra/2);
-			int dy = drawPlayer.iy() - (ra/2);
-			g.setColor(Color.BLUE);
-			g.fillOval(dx, dy, ra, ra);
-			
-			double score = getScore(play1.getStatistics());
-			g.setColor(Color.RED);
-		   g.setFont(g.getFont().deriveFont(25f));
-		   g.drawString("Score: "+ score,10,getHeight()-10);
-		   g.setColor(Color.BLACK);
-		   g.drawString("Score: "+ score,9,getHeight()-9);
-		   g.drawString("Score: "+ score,8,getHeight()-8);
-//		   g.drawString("Score: "+ score,7,getHeight()-7);
-//		   g.drawString("Score: "+ score,6,getHeight()-6);
-		   
-		   double timeLeft = getTimeLeft(play1.getStatistics())/1000;
-		   g.setColor(Color.RED);
-		   g.setFont(g.getFont().deriveFont(25f));
-		   g.drawString("Time Left: "+ timeLeft,10,getHeight()-35);
-		   g.setColor(Color.BLACK);
-		   g.drawString("Time Left: "+ timeLeft,9,getHeight()-34);
-		   g.drawString("Time Left: "+ timeLeft,8,getHeight()-33);
+		drawPlayer(g);
+		drawScore(g);
+		drawTimeLeft(g);
 		}
 
-
-		//		add all the Packmen
-//			for(int i=0; i<pointsBlock.size();i++) {
-//				Point3D p1Pix = m.Coords2Pixels(pointsBlock.get(i).getBL());
-//				Point3D p2Pix = m.Coords2Pixels(pointsBlock.get(i).getTR());
-//				int dx = Math.abs(p2Pix.ix() - p1Pix.ix());
-//				int dy = Math.abs(p2Pix.iy() - p1Pix.iy());
-//				g.setColor(Color.BLACK);
-//				g.fillRect(p1Pix.ix(),p2Pix.iy(),dx,dy);
-//			}
-			for(int i = 0 ; i<pointsPack.size();i++) {
-				int r = 30;
-				Point3D pointDraw =  m.Coords2Pixels(pointsPack.get(i).getP());
-				int px = pointDraw.ix() - (r/2);
-				int py = pointDraw.iy() - (r/2);
-				
-				g.setColor(Color.YELLOW);
-				g.fillOval(px, py, r, r);
-			}
-			
-			
-			
-		//		add all the Fruit
-			for(int i = 0 ; i<pointsFruit.size();i++) {
-				int r = 10;
-				Point3D pointDraw =  m.Coords2Pixels(pointsFruit.get(i).getP());
-				int px = pointDraw.ix()-(r/2);
-				int py = pointDraw.iy() - (r/2);
-				
-				g.setColor(Color.MAGENTA);
-				g.fillOval(px, py, r, r);
-			}
-		
-			for(int i = 0 ; i<pointsGhost.size();i++) {
-				int r = 15;
-				Point3D pointDraw =  m.Coords2Pixels(pointsGhost.get(i).getP());
-				int px = pointDraw.ix() - (r/2);
-				int py = pointDraw.iy() - (r/2);
-				g.setColor(Color.RED);
-				g.fillOval(px, py, r, r);
-
-			}
-//				double score = getScore(play1.getStatistics());
-//				g.setColor(Color.RED);
-//			   g.setFont(g.getFont().deriveFont(25f));
-//			   g.drawString("Score: "+ score,10,getHeight()-10);
-//			   
-//			   double timeLeft = getTimeLeft(play1.getStatistics());
-//			   g.setColor(Color.RED);
-//			   g.setFont(g.getFont().deriveFont(25f));
-//			   g.drawString("Time Left: "+ timeLeft,10,getHeight()-35);
+		drawPackmen(g);
+		drawFruit(g);
+		drawGhost(g);
 
 	}
 
 	private void Run() {
-//		Map m = new Map(getWidth(),getHeight(),"Ariel1.png");
+		//		Map m = new Map(getWidth(),getHeight(),"Ariel1.png");
 		play1.start();
 		play1.rotate(0);
 		DrawBoard db = new DrawBoard(this);
 		Thread t = new Thread(db);
 		t.start();
-		
-		
+
+
 	}
 	public void setRun(boolean isRun) {
 		this.isRun = isRun;
@@ -663,7 +546,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		pointsFruit.clear();
 		pointsBlock.clear();
 		pointsGhost.clear();
-		
+
 	}
 	private void falseEverything() {
 		isRun =false;
@@ -671,5 +554,82 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		isPlayer = false;
 		playerAdded = false;
 	}
+	private void drawBlocks(Graphics g) {
+		Map m = new Map(getWidth(),getHeight(),"Ariel1.png");
 
+		for(int i=0; i<pointsBlock.size();i++) {
+			Point3D p1Pix = m.Coords2Pixels(pointsBlock.get(i).getBL());
+			Point3D p2Pix = m.Coords2Pixels(pointsBlock.get(i).getTR());
+			int dx = Math.abs(p2Pix.ix() - p1Pix.ix());
+			int dy = Math.abs(p2Pix.iy() - p1Pix.iy());
+			g.setColor(Color.BLACK);
+			g.fillRect(p1Pix.ix(),p2Pix.iy(),dx,dy);
+		}
+	}
+	private void drawPackmen(Graphics g) {
+		Map m = new Map(getWidth(),getHeight(),"Ariel1.png"); 
+
+		for(int i = 0 ; i<pointsPack.size();i++) {
+			int r = 30;
+			Point3D pointDraw =  m.Coords2Pixels(pointsPack.get(i).getP());
+			int px = pointDraw.ix() - (r/2);
+			int py = pointDraw.iy() - (r/2);
+
+			g.setColor(Color.YELLOW);
+			g.fillOval(px, py, r, r);
+		}
+	}
+	private void drawFruit(Graphics g) {
+		Map m = new Map(getWidth(),getHeight(),"Ariel1.png"); 
+
+		for(int i = 0 ; i<pointsFruit.size();i++) {
+			int r = 10;
+			Point3D pointDraw =  m.Coords2Pixels(pointsFruit.get(i).getP());
+			int px = pointDraw.ix()-(r/2);
+			int py = pointDraw.iy() - (r/2);
+
+			g.setColor(Color.MAGENTA);
+			g.fillOval(px, py, r, r);
+		}
+	}
+	private void drawGhost(Graphics g) {
+		Map m = new Map(getWidth(),getHeight(),"Ariel1.png"); 
+
+		for(int i = 0 ; i<pointsGhost.size();i++) {
+			int r = 15;
+			Point3D pointDraw =  m.Coords2Pixels(pointsGhost.get(i).getP());
+			int px = pointDraw.ix() - (r/2);
+			int py = pointDraw.iy() - (r/2);
+			g.setColor(Color.RED);
+			g.fillOval(px, py, r, r);
+
+		}
+	}
+	private void drawPlayer(Graphics g) {
+		Map m = new Map(getWidth(),getHeight(),"Ariel1.png"); 
+		int ra = 25;
+		Point3D drawPlayer =  m.Coords2Pixels(player1.getP());
+		int dx = drawPlayer.ix() - (ra/2);
+		int dy = drawPlayer.iy() - (ra/2);
+		g.setColor(Color.BLUE);
+		g.fillOval(dx, dy, ra, ra);
+	}
+	private void drawScore(Graphics g) {
+		double score = getScore(play1.getStatistics());
+		g.setColor(Color.RED);
+		g.setFont(g.getFont().deriveFont(25f));
+		g.drawString("Score: "+ score,10,getHeight()-10);
+		g.setColor(Color.BLACK);
+		g.drawString("Score: "+ score,9,getHeight()-9);
+		g.drawString("Score: "+ score,8,getHeight()-8);
+	}
+	private void drawTimeLeft(Graphics g) {
+		double timeLeft = getTimeLeft(play1.getStatistics())/1000;
+		g.setColor(Color.RED);
+		g.setFont(g.getFont().deriveFont(25f));
+		g.drawString("Time Left: "+ timeLeft,10,getHeight()-35);
+		g.setColor(Color.BLACK);
+		g.drawString("Time Left: "+ timeLeft,9,getHeight()-34);
+		g.drawString("Time Left: "+ timeLeft,8,getHeight()-33);
+	}
 }

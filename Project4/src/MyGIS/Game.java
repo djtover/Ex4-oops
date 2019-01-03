@@ -24,6 +24,7 @@ public class Game {
 	private ArrayList<Block> ALB;
 	private Player p;
 	private double time;
+	private String myImage;
 	public Game() {
 		this.ALF = new ArrayList<Fruit>();
 		this.ALP = new ArrayList<Packman>();
@@ -39,6 +40,10 @@ public class Game {
 		this.ALB = g.getALB();
 		this.ALG = g.getALG();
 		p = g.getPlayer();
+		myImage = g.getMyImage();
+	}
+	public String getMyImage() {
+		return myImage;
 	}
 	public ArrayList<Ghost> getALG() {
 		return ALG;
@@ -78,6 +83,9 @@ public class Game {
 	}
 	public boolean addPackman(Packman p) {
 		return ALP.add(p);
+	}
+	public boolean addBlock(Block b) {
+		return ALB.add(b);
 	}
 	public Iterator<Fruit> iteratorFruit(){
 		return ALF.iterator();

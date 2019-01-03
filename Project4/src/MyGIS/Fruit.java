@@ -42,7 +42,7 @@ public class Fruit {
 		this.weight = other.getWeight();
 		this.size = other.getsize();
 		timeStamp = other.getTimeStamp();
-		pred = other.getPred();
+//		pred = other.getPred();
 	}
 
 
