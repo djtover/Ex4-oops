@@ -38,9 +38,19 @@ public class Path {
 	}
 
 	public boolean add(Fruit f) {
+	
 		return AL.add(f);
 
 	}
+	public void remove(int index) {
+		AL.remove(index);
+	}
+	public void addPath(Path path ) {
+		for(int i=0;i<path.size();i++) {
+			AL.add(path.getAL().get(i));
+		}
+	}
+	
 	public Iterator<Fruit> iterator(){
 		return AL.iterator();
 	}

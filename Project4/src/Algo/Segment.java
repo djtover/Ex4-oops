@@ -9,12 +9,18 @@ public class Segment {
 	private boolean isHorizontal;
 	
 	public Segment(Point3D pixel1, Point3D pixel2) {
+		
 		Point3D [] points =  orderMinMaxByX(pixel1 ,pixel2);
 		
 		point1 = points[0];
 		point2 = points[1];
 		isVertical = isVertical(point1 , point2);
 		isHorizontal = isHorizontal(point1, point2);
+		if(isVertical) {
+			Point3D [] pointsY =  orderMinMaxByY(pixel1 ,pixel2);
+			point1 = pointsY[0];
+			point2 = pointsY[1];
+		}
 	}
 	private boolean isVertical(Point3D pixel1 , Point3D pixel2) {
 		if(pixel1.x() == pixel2.x()) {
@@ -32,6 +38,18 @@ public class Segment {
 	private Point3D[] orderMinMaxByX(Point3D pixel1 , Point3D pixel2) {
 		Point3D ans[]= new Point3D[2];
 		if(pixel1.ix()>pixel2.ix()) {
+			ans[0] = pixel2;
+			ans[1] = pixel1;
+		}
+		else {
+			ans[0] = pixel1;
+			ans[1] = pixel2;
+		}
+		return ans;
+	}
+	private Point3D[] orderMinMaxByY(Point3D pixel1 , Point3D pixel2) {
+		Point3D ans[]= new Point3D[2];
+		if(pixel1.iy()>pixel2.iy()) {
 			ans[0] = pixel2;
 			ans[1] = pixel1;
 		}

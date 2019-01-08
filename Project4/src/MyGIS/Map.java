@@ -123,8 +123,8 @@ public class Map {
 
 	public Point3D pointInTime(Point3D gps1, double dist,double angle) {
 		MyCoords mc = new MyCoords();
-		double x = dist*Math.cos(toRad(angle));
-		double y = dist*Math.sin(toRad(angle));
+		double y = dist*Math.cos(toRad(angle));
+		double x = dist*Math.sin(toRad(angle));
 		Point3D v = new Point3D(x,y);
 		Point3D point = mc.add(gps1,v);
 		return point;
@@ -182,7 +182,7 @@ public class Map {
 //		System.out.println(aed[0]);
 		Map m = new Map(1386,642,"Ariel1.png");
 		double angle = m.findAngle(p1, p2);
-//		Point3D p3 = m.pointInTime(p1,aed[2],aed[0]);
-		System.out.println(angle);
+		Point3D p3 = m.pointInTime(p1,aed[2],angle);
+		System.out.println(p3);
 	}
 }

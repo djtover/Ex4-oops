@@ -22,7 +22,7 @@ public class Game {
 	private ArrayList<Packman> ALP;
 	private ArrayList<Ghost> ALG;
 	private ArrayList<Block> ALB;
-	private Player p;
+	private Player player;
 	private double time;
 	private String myImage;
 	public Game() {
@@ -30,7 +30,7 @@ public class Game {
 		this.ALP = new ArrayList<Packman>();
 		this.ALG = new ArrayList<Ghost>();
 		this.ALB = new ArrayList<Block>();
-		this.p = new Player();
+		this.player = new Player();
 		time = 0;
 		
 	}
@@ -39,8 +39,14 @@ public class Game {
 		this.ALP = g.getALP();
 		this.ALB = g.getALB();
 		this.ALG = g.getALG();
-		p = g.getPlayer();
+		player = g.getPlayer();
 		myImage = g.getMyImage();
+	}
+	public void clear() {
+		ALF.clear();
+		ALP.clear();
+		ALG.clear();
+		ALB.clear();
 	}
 	public String getMyImage() {
 		return myImage;
@@ -52,7 +58,10 @@ public class Game {
 		return ALB;
 	}
 	public Player getPlayer() {
-		return p;
+		return player;
+	}
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 	/**
 	 * This is constuctor that can receive a csv File and convert it to a game
@@ -95,6 +104,7 @@ public class Game {
 	}
    public String toString() {
 	   String s = "";
+	   s+= player.toString()+"\n";
 	   for(int i=0; i<ALF.size();i++) {
 		   s=s+ (ALF.get(i).toString());
 	   }

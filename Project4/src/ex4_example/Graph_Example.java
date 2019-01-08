@@ -68,7 +68,7 @@ public class Graph_Example {
 		G.addEdge("8","b",pp[8].distance2D(pp[15]));
 		G.addEdge("13","b",pp[13].distance2D(pp[15]));
 		G.addEdge("11","b",pp[11].distance2D(pp[15]));
-		 
+//		 System.out.println(G);
 		// This is the main call for computing all the shortest path from node 0 ("a")
 		Graph_Algo.dijkstra(G, source);
 		

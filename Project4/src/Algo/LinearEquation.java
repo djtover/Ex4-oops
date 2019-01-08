@@ -7,6 +7,7 @@ public class LinearEquation {
 	private int y1;
 	private double m;
 	private boolean isVertical;
+	private boolean isHorizontal;
 
 	public LinearEquation(int x , int y, double M) {
 		this.x1 = x;
@@ -15,6 +16,7 @@ public class LinearEquation {
 		isVertical = false;
 	}
 	public LinearEquation(Segment seg) {
+		if(!seg.getIsHorizontal() && !seg.getIsVertical() ) {
 		double dx = seg.getPoint2().x() - seg.getPoint1().x();
 		double dy = seg.getPoint2().y() - seg.getPoint1().y();
 		x1 = seg.getPoint1().ix();
@@ -22,15 +24,25 @@ public class LinearEquation {
 		if(dx!= 0) {
 		this.m = (dy/dx);
 		}
-		else {
-			isVertical = true;
 		}
+		else {
+			if(seg.getIsHorizontal()) {
+				isHorizontal = true;
+			}
+			else if(seg.getIsVertical()) {
+				isVertical = true;
+			}
+		}
+//		else {
+//			isVertical = true;
+//		}
 	}
 	public int f(int x) {
-		if(!isVertical) {
+		if(!isVertical && !isHorizontal) {
 		int ans = (int)((m*(x-x1))+y1);
 		return ans;
 		}
+		
 		return Integer.MAX_VALUE;
 	}
 	

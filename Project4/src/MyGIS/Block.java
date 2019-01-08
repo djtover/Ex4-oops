@@ -16,8 +16,8 @@ public class Block {
 	public Block(double lat1, double lon1,double alt1, double lat2,double lon2,double alt2) {
 		this.BL = new Point3D(lat1,lon1,alt1);
 		this.TR = new Point3D(lat2, lon2,alt2);
-		this.TL = new Point3D(lat1,lon2,alt1);
-		this.BR= new Point3D(lat2, lon1,alt2);
+		this.TL = new Point3D(lat2,lon1,alt1);
+		this.BR= new Point3D(lat1, lon2,alt2);
 		this.id = size;
 		size++;
 	}

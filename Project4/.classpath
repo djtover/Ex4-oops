@@ -8,6 +8,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/Ex4_v0.2.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.47_1.jar"/>
-	<classpathentry kind="lib" path="lib/Graph_v0.1.jar"/>
+	<classpathentry kind="lib" path="lib/Graph_v0.11.jar" sourcepath="C:/Users/djtov/Downloads/Graph_101/Graph_v0.11.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

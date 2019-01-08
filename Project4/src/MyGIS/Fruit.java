@@ -33,6 +33,14 @@ public class Fruit {
 		timeStamp= 0;
 		pred = null;
 	}
+	public Fruit(Point3D P , double Weight) {
+		p = P;
+		weight = Weight;
+		id = size;
+		this.size++;
+		timeStamp= 0;
+		pred = null;
+	}
 	/**
 	 * This is a constructor to build a Fruit from another Fruit
 	 * @param other Input a Fruit 
