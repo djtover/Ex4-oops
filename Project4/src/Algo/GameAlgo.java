@@ -8,6 +8,7 @@ import MyCoords.MyCoords;
 import MyGIS.Block;
 import MyGIS.Fruit;
 import MyGIS.Game;
+import MyGIS.Ghost;
 import MyGIS.Map;
 import MyGIS.Player;
 import graph.Graph;
@@ -23,6 +24,7 @@ public class GameAlgo {
 		//		isAdded = false;
 	}
 	public Game RunAlgo(Point3D startingPoint) {
+		long start = System.currentTimeMillis();
 		ArrayList<Point3D> points = cornersInBoxes();
 		Graph graph = buildGraph(points);
 
@@ -30,7 +32,7 @@ public class GameAlgo {
 		ArrayList<Fruit> alfCopy = new ArrayList<Fruit>(game.getALF());
 		Player playerCopy = new Player(game.getPlayer());
 		playerCopy.setP(startingPoint);
-		Map m = new Map(1386,642,"Ariel1.png");
+//		Map m = new Map(1386,642,"Ariel1.png");
 		Path path = new Path();
 		String source = "a";
 		String target = "b";
@@ -41,7 +43,8 @@ public class GameAlgo {
 			if(distance > mc.distance3d(playerCopy.getP(), alfCopy.get(i).getP())) {
 				Point3D point1 = playerCopy.getP();
 				Point3D point2 =alfCopy.get(i).getP();
-				if(LOS(point1,point2)) {
+				boolean los = LOS(point1,point2);
+				if(los) {
 					distance =  mc.distance3d(playerCopy.getP(),alfCopy.get(i).getP());
 					index = i;
 					isBlocked = false;
@@ -70,7 +73,10 @@ public class GameAlgo {
 				alfCopy.remove(index);
 			}
 		}
+		
 		game.setPlayer(playerCopy);
+		long end = System.currentTimeMillis();
+		System.out.println(end - start + " milliseconds");
 		return game;
 	}
 	private Graph buildGraph(ArrayList<Point3D> corners) {
@@ -95,7 +101,6 @@ public class GameAlgo {
 		return graph;
 	}
 	private void addEdges(Graph gr,ArrayList<Point3D> points,Point3D source, Point3D dest) {
-		//		gr.clear_meta_data();
 		Map m = new Map(1386,642,"Ariel1.png");
 		MyCoords mc = new MyCoords();
 
@@ -104,23 +109,20 @@ public class GameAlgo {
 
 		for(int i=0;i<points.size();i++) {
 			Point3D point1 = points.get(i);
-
 			for(int j=i;j<points.size();j++) {
 				if(i!=j) {
 					Point3D point2 = points.get(j);
 					boolean hasLos = LOS(point1,point2);
 					if(hasLos) {
-						//						System.out.println(i+","+j+","+m.DistanceBetweenPixels(point1, point2));
 						if(i==0) {
 							gr.addEdge("a", ""+j,  mc.distance3d(point1, point2));
 						}
 						else if( j==points.size()-1) {
-							gr.addEdge(""+i, "b", mc.distance3d(point1, point2));//.DistanceBetweenPixels(point1, point2));
+							gr.addEdge(""+i, "b", mc.distance3d(point1, point2));
 
 						}
 						else {
 							gr.addEdge(""+i, ""+j,  mc.distance3d(point1, point2));
-							//						System.out.println(i+","+j);
 						}
 					}
 				}
@@ -148,7 +150,7 @@ public class GameAlgo {
 		return points;
 	}
 	private boolean hasNeighbors(Point3D gps, ArrayList<Point3D> points,int index) {
-		Map m = new Map(1386,642,"Ariel1.png");
+//		Map m = new Map(1386,642,"Ariel1.png");
 		for(int i=0;i<points.size();i++) {
 			if(i!=index) {
 				boolean hasLos = LOS(gps,points.get(i));
@@ -170,16 +172,36 @@ public class GameAlgo {
 			Point3D temp = gps1;
 			double dist = mc.distance3d(gps1,gps2);
 				while(dist>1) {
-					temp = m.pointInTime(temp,1, angle);
+					temp = pointInTime(temp,1, angle);
 					 dist = mc.distance3d(temp,gps2);
 				if(game.getALB().get(i).isInBlock(temp)) {
 					return false;
 				}
 			}
+			
 		}
-
 		return true;
 	}
+	private Point3D pointInTime(Point3D gps1, double dist,double angle) {
+		MyCoords mc = new MyCoords();
+		double y = dist*Math.cos(mc.toRad(angle));
+		double x = dist*Math.sin(mc.toRad(angle));
+		Point3D v = new Point3D(x,y);
+		Point3D point = mc.add(gps1,v);
+		return point;
+
+	}
+//	public boolean GhostinArea(Point3D gps1,ArrayList<Ghost> ghosts ) {
+//		MyCoords mc = new MyCoords();
+//		for(int i=0; i<ghosts.size();i++) {
+//			double dist = mc.distance3d(gps1, ghosts.get(i).getP());
+//			if(dist<5) {
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
+	
 	public static void main(String args[] ) {
 //		Player player = new Player(32.10541924	,35.2086449
 //				,0.0,1,1);

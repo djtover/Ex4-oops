@@ -104,6 +104,11 @@ public class Map {
 
 
 	}
+	/**
+	 * This is a method that will convert from distance in meters to distance in pixels
+	 * @param dist in meters
+	 * @return distance in pixels
+	 */
 	public int distanceInPixels(double dist) {
 		MyCoords mc = new MyCoords();
 
@@ -121,15 +126,15 @@ public class Map {
 
 	}
 
-	public Point3D pointInTime(Point3D gps1, double dist,double angle) {
-		MyCoords mc = new MyCoords();
-		double y = dist*Math.cos(toRad(angle));
-		double x = dist*Math.sin(toRad(angle));
-		Point3D v = new Point3D(x,y);
-		Point3D point = mc.add(gps1,v);
-		return point;
-
-	}
+//	public Point3D pointInTime(Point3D gps1, double dist,double angle) {
+//		MyCoords mc = new MyCoords();
+//		double y = dist*Math.cos(toRad(angle));
+//		double x = dist*Math.sin(toRad(angle));
+//		Point3D v = new Point3D(x,y);
+//		Point3D point = mc.add(gps1,v);
+//		return point;
+//
+//	}
 	public double getLatPerHeight() {
 		return latPerHeight;
 	}
@@ -157,23 +162,6 @@ public class Map {
 	public static void main(String []args) {
 
 
-		//		Map m = new Map(1386,642,"Ariel1.png");
-		//		Point3D p1 = new Point3D(32.10255812461059,35.207452022366525,650);
-		//		Point3D p2 = new Point3D(32.10484293457944,35.20783109090909,650);
-		//		MyCoords mc = new MyCoords();
-		//		
-		//		double ans = mc.distance3d(p1, p2);
-
-
-		//		Point3D p1 = new Point3D(703,536);
-		//		System.out.println(m.Pixels2Coords(p1, m.getWidth(), m.getHeight()));
-		//		Point3D p2 = new Point3D(756,168);
-		//		System.out.println(m.Pixels2Coords(p2, m.getWidth(), m.getHeight()));
-		//		Point3D p3 = m.Coords2Pixels(p2);
-		//		p3 = m.Pixels2Coords(p3, m.getWidth(), m.getHeight());
-		//		double ans = m.DistanceBetweenPixels(p1, p2);
-		//		System.out.println(ans);
-		//		System.out.println(p3);
 
 		MyCoords mc = new MyCoords();
 		Point3D p1 = new Point3D(32.103315,35.209039);
@@ -182,7 +170,7 @@ public class Map {
 //		System.out.println(aed[0]);
 		Map m = new Map(1386,642,"Ariel1.png");
 		double angle = m.findAngle(p1, p2);
-		Point3D p3 = m.pointInTime(p1,aed[2],angle);
-		System.out.println(p3);
+//		Point3D p3 = m.pointInTime(p1,aed[2],angle);
+//		System.out.println(p3);
 	}
 }

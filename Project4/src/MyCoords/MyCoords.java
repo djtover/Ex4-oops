@@ -127,12 +127,12 @@ public class MyCoords implements coords_converter {
 			return false;
 		return true;
 	}
-	private double toRad(double deg) {
+	public double toRad(double deg) {
 		double rad = (deg*Math.PI)/180;
 		return rad;
 
 	}
-	private double toDeg(double rad) {
+	public double toDeg(double rad) {
 		double deg = (rad*180)/Math.PI;
 		return deg;
 	}

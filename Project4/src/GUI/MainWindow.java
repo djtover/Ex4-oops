@@ -440,6 +440,10 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 //				System.out.println(game.getPlayer().getP()+" is source ");
 //				System.out.println(game.getPlayer().getPath().getAL().get(0).getP() +" is dest");
 //				System.out.println(angle + " is angle");
+				if(game.GhostinArea(game.getPlayer().getP())) {
+					angle = (angle +90)%360;
+				}
+				
 				play1.rotate(angle);
 			}
 //			System.out.println(game.getPlayer().getPath().getAL().size() +" is Path size");

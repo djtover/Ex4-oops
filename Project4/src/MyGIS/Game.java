@@ -8,6 +8,7 @@ import java.util.Iterator;
 
 //import FileFormat.FromCsv;
 import Geom.Point3D;
+import MyCoords.MyCoords;
 /**
  * This is class that represents the game
  * Field 1: ALF is an ArrayList that hold all of the Fruit in the Game
@@ -74,6 +75,18 @@ public class Game {
 //		time = 0;
 //		
 //	}
+	
+	
+	public boolean GhostinArea(Point3D gps1) {
+		MyCoords mc = new MyCoords();
+		for(int i=0; i<this.ALG.size();i++) {
+			double dist = mc.distance3d(gps1, this.getALG().get(i).getP());
+			if(dist<4) {
+				return true;
+			}
+		}
+		return false;
+	}
 	public double getTime() {
 		return time;
 	}
