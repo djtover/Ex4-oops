@@ -10,8 +10,9 @@ This project is a game that based on a map of Ariel, and on the map there are a 
 5) Block which are areas the Player cant go through.
 The point of the game is for all the Fruit to be eaten. Every Packman and Player has a certain speed it could go and a radius that it could eat within.
 
-## ** Game Setup**
+## **Game Setup**
 The configuration of the game will be made by one of these 9 examples.
+
 ![screenshot 163](https://user-images.githubusercontent.com/45014488/50998648-c89f3000-1530-11e9-8a43-861682d8a869.png)
 
 Once you have chosen then press on Menu and click on Player as seen in the picture below.
@@ -24,6 +25,7 @@ After that you have either two options:
 2)Run in Automatic Mode which means the Player will go automatically to eat the Fruit.
 
 After you choose which Mode you want the game will start and this is how the game will look.
+
 ![screenshot 165](https://user-images.githubusercontent.com/45014488/50999151-2e3fec00-1532-11e9-89fe-6af1f2631deb.png)
 
 
