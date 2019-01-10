@@ -18,14 +18,6 @@ public class Map {
 	private final Point3D LB = new Point3D(32.101898,35.202369,650);
 	private final double diffLat = .003830;
 	private final double diffLon = .010047;
-
-//	private final Point3D RT = new Point3D(32.105886,35.212337,650);
-//	private final Point3D RB = new Point3D(32.101900,35.212337,650);
-//	private final Point3D LT = new Point3D(32.105886,35.202424,650);
-//	private final Point3D LB = new Point3D(32.101900,35.202424,650);
-//	private final double diffLat = .003986;
-//	private final double diffLon = .009913;
-
 	private String myImage;
 	private double latPerHeight;
 	private double lonPerWidth;
@@ -119,6 +111,12 @@ public class Map {
 		return (int)(dist*r);
 
 	}
+	/**
+	 * This is a method to find the angle between 2 points
+	 * @param gps1 The first point
+	 * @param gps2 the second point
+	 * @return
+	 */
 	public double findAngle(Point3D gps1, Point3D gps2) {
 		MyCoords mc = new MyCoords();
 		double[] aed = mc.azimuth_elevation_dist(gps1, gps2);
@@ -126,15 +124,6 @@ public class Map {
 
 	}
 
-//	public Point3D pointInTime(Point3D gps1, double dist,double angle) {
-//		MyCoords mc = new MyCoords();
-//		double y = dist*Math.cos(toRad(angle));
-//		double x = dist*Math.sin(toRad(angle));
-//		Point3D v = new Point3D(x,y);
-//		Point3D point = mc.add(gps1,v);
-//		return point;
-//
-//	}
 	public double getLatPerHeight() {
 		return latPerHeight;
 	}
@@ -149,28 +138,5 @@ public class Map {
 	}
 	public String getMyImage() {
 		return myImage;
-	}
-	private double toRad(double deg) {
-		double rad = (deg*Math.PI)/180;
-		return rad;
-
-	}
-	private double toDeg(double rad) {
-		double deg = (rad*180)/Math.PI;
-		return deg;
-	}
-	public static void main(String []args) {
-
-
-
-		MyCoords mc = new MyCoords();
-		Point3D p1 = new Point3D(32.103315,35.209039);
-		Point3D p2 = new Point3D(32.106352,35.205225);
-		double [] aed = mc.azimuth_elevation_dist(p1, p2);
-//		System.out.println(aed[0]);
-		Map m = new Map(1386,642,"Ariel1.png");
-		double angle = m.findAngle(p1, p2);
-//		Point3D p3 = m.pointInTime(p1,aed[2],angle);
-//		System.out.println(p3);
 	}
 }

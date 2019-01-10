@@ -1,5 +1,8 @@
 package MyGIS;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 import Geom.Point3D;
 /**
  * This class represents a Packman 
@@ -52,6 +55,21 @@ public class Packman {
 		this.path = other.getPath();
 		startingPoint = other.getStartingPoint();
 		
+	}
+	/**
+	 * This is a method to drawthe Packman
+	 * @param g is the Graphics needed to draw
+	 * @param m is the Map needed to convert from coordinates to pixels
+	 */
+	public void drawPackman(Graphics g , Map m) {
+		
+		int r = 30;
+		Point3D pointDraw =  m.Coords2Pixels(this.getP());
+		int px = pointDraw.ix() - (r/2);
+		int py = pointDraw.iy() - (r/2);
+
+		g.setColor(Color.YELLOW);
+		g.fillOval(px, py, r, r);
 	}
 
 	public long getTimeStamp() {

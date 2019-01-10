@@ -1,13 +1,28 @@
 package MyGIS;
 
-import Geom.Point3D;
+import java.awt.Color;
+import java.awt.Graphics;
 
+import Geom.Point3D;
+/**
+ * This is a class that represents a Player in the Packman game
+ * @author David Tover
+ *
+ */
 public class Player {
 	private Point3D p;
 	private double speed;
 	private double weight;
 	private int id;
 	private Path path;
+	/**
+	 * This is a constructor for the Player
+	 * @param lat is the Latitude of the Player
+	 * @param lon is the Longitude of the Player
+	 * @param alt is the Altitude of the Player
+	 * @param Speed is the Speed of the Player
+	 * @param Weight is the weight the Player has accumulated
+	 */
 	public Player(double lat, double lon, double alt, double Speed, double Weight) {
 		p= new Point3D(lat,lon,alt);
 		this.speed = Speed;
@@ -29,6 +44,19 @@ public class Player {
 		id = 0;
 		path = other.getPath();
 				
+	}
+	/**
+	 * This is a method to draw a Player
+	 * @param g is the Graphics need to draw
+	 * @param m is the Map needed to convert from coordinates to pixels
+	 */
+	public void drawPlayer(Graphics g , Map m) {
+		int ra = 25;
+		Point3D drawPlayer =  m.Coords2Pixels(this.getP());
+		int dx = drawPlayer.ix() - (ra/2);
+		int dy = drawPlayer.iy() - (ra/2);
+		g.setColor(Color.BLUE);
+		g.fillOval(dx, dy, ra, ra);
 	}
 	public Path getPath() {
 		return path;

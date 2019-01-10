@@ -45,6 +45,10 @@ public class Path {
 	public void remove(int index) {
 		AL.remove(index);
 	}
+	/**
+	 * This is a method to add another Path to this Path
+	 * @param path
+	 */
 	public void addPath(Path path ) {
 		for(int i=0;i<path.size();i++) {
 			AL.add(path.getAL().get(i));

@@ -36,9 +36,6 @@ import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 import Algo.GameAlgo;
 import FileFormat.FromBoard;
-import FileFormat.FromCsv;
-import FileFormat.ToCsv;
-import FileFormat.ToKml;
 import MyGIS.Block;
 import MyGIS.Fruit;
 import MyGIS.Game;
@@ -46,10 +43,9 @@ import MyGIS.Ghost;
 import MyGIS.Map;
 import MyGIS.Packman;
 import MyGIS.Player;
-import MyGIS.ShortestPathAlgo;
-import MyGIS.Solution;
 import Robot.Play;
 import Geom.Point3D;
+import MyCoords.MyCoords;
 
 /**
  * This class represents the GUI of the Packman game
@@ -69,15 +65,10 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 	private boolean isPlayer;
 	private boolean playerAdded;
 	private Play play1;
-	//	private Player player1;
 	private boolean isRunUser;
 	private boolean isRunCPU;
 	private int x = -1;
 	private int y = -1;
-	//	private ArrayList<Packman> pointsPack = new ArrayList<Packman>();
-	//	private ArrayList<Fruit> pointsFruit = new ArrayList<Fruit>();
-	//	private ArrayList<Block> pointsBlock = new ArrayList<Block>();
-	//	private ArrayList<Ghost> pointsGhost = new ArrayList<Ghost>();
 	private static int c = 1;
 	private boolean isResized;
 	private int runTime;
@@ -118,7 +109,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		MenuItem RunCPU = new MenuItem("Run Automatic");
 		MenuItem ClearMenu = new MenuItem("Clear");
 		Menu menu2 = new Menu("Examples");
-		//		MenuItem fromCsv = new MenuItem ("Import CSV File");
 		MenuItem example1 = new MenuItem("Example 1");
 		MenuItem example2 = new MenuItem("Example 2");
 		MenuItem example3 = new MenuItem("Example 3");
@@ -131,7 +121,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 
 
-		//		this is a listener if the Packman button was clicked
+		/**
+		 * This is a listener to see if the Player button was clicked
+		 */
 
 		PlayerMenu.addActionListener(new ActionListener() {
 
@@ -152,7 +144,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			}
 		});
 
-		//		this is a listener if the Run button was clicked
+		/**
+		 * This is a listener to see if the run in Manual Mode button was clicked
+		 */
 
 		RunMenu.addActionListener(new ActionListener() {
 
@@ -174,6 +168,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
+		/**
+		 * This is a listener to see if the run in Automatic Mode button was clicked
+		 */
 		RunCPU.addActionListener(new ActionListener() {
 
 			@Override
@@ -195,7 +192,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
-		//		this is a listener if the Clear button was clicked
+		/**
+		 * this is a listener to see if the Clear button was clicked
+		 */
 
 		ClearMenu.addActionListener(new ActionListener() {
 
@@ -207,7 +206,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				repaint();
 			}
 		});
-
+		/**
+		 * This is a listener to see if example 1 was clicked
+		 */
 		example1.addActionListener(new ActionListener() {
 
 			@Override
@@ -215,7 +216,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-				//				repaint();
 				play1 = new Play("data/Ex4_OOP_example1.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -224,7 +224,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
-
+		/**
+		 * This is a listener to see if example 2 was clicked
+		 */
 		example2.addActionListener(new ActionListener() {
 
 			@Override
@@ -232,7 +234,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-				//				repaint();
 				play1 = new Play("data/Ex4_OOP_example2.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -241,7 +242,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
-
+		/**
+		 * This is a listener to see if example 3 was clicked
+		 */
 		example3.addActionListener(new ActionListener() {
 
 			@Override
@@ -249,7 +252,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-				//				repaint();
 				play1 = new Play("data/Ex4_OOP_example3.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -258,6 +260,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
+		/**
+		 * This is a listener to see if example 4 was clicked
+		 */
 		example4.addActionListener(new ActionListener() {
 
 			@Override
@@ -265,7 +270,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-				//				repaint();
 				play1 = new Play("data/Ex4_OOP_example4.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -274,6 +278,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
+		/**
+		 * This is a listener to see if example 5 was clicked
+		 */
 		example5.addActionListener(new ActionListener() {
 
 			@Override
@@ -281,7 +288,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-				//				repaint();
 				play1 = new Play("data/Ex4_OOP_example5.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -290,6 +296,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
+		/**
+		 * This is a listener to see if example 6 was clicked
+		 */
 		example6.addActionListener(new ActionListener() {
 
 			@Override
@@ -297,7 +306,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-				//				repaint();
 				play1 = new Play("data/Ex4_OOP_example6.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -306,23 +314,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
-
-		example6.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				falseEverything();
-				clear();
-				//				repaint();
-				play1 = new Play("data/Ex4_OOP_example6.csv");
-				play1.setIDs(327339701);
-				FromBoard board = new FromBoard(play1.getBoard());
-				updateBoard(board);
-				repaint();
-
-			}
-		});
+		/**
+		 * This is a listener to see if example 7 was clicked
+		 */
 		example7.addActionListener(new ActionListener() {
 
 			@Override
@@ -339,7 +333,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
-
+		/**
+		 * This is a listener to see if example 8 was clicked
+		 */
 		example8.addActionListener(new ActionListener() {
 
 			@Override
@@ -356,6 +352,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
+		/**
+		 * This is a listener to see if example 9 was clicked
+		 */
 		example9.addActionListener(new ActionListener() {
 
 			@Override
@@ -372,12 +371,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 			}
 		});
-
-
-
-
-
-
 		menuBar.add(menu1);
 		menuBar.add(menu2);
 		menu2.add(example1);
@@ -405,7 +398,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 	}
 	/**
-	 * This is a method thats paints on the image that will put Packmans and Fruits on the image and also paints the paths of the Packmen
+	 * This is a method thats paints on the image that will put Packmen,Fruits,Ghost on the image 
 	 */
 	private static int index = 0;
 	public void paint(Graphics g)
@@ -418,7 +411,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		{
 			Point3D point = new Point3D(x,y);
 			Point3D newPoint=new Point3D (m.Pixels2Coords(point, getWidth(), getHeight()));
-			//			if it is putting down packmen on the screen then make a new packman and save it to the arraylist of packmen
+			/**
+			 * This is to check if the player button was clicked and if it was then set the location of the player
+			 */
 			if(isPlayer) {
 				play1.setInitLocation(newPoint.x(), newPoint.y());
 				game.getPlayer().setP(newPoint);
@@ -433,21 +428,21 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			double angle = m.findAngle(game.getPlayer().getP(), newPoint);
 			play1.rotate(angle);
 		}
-		if(isRunCPU) {
+		else if(isRunCPU) {
 			if(game.getPlayer().getPath().getAL().size()>0) {
+				if(game.getPlayer().getPath().getAL().size()>0) {
 				double angle = m.findAngle(game.getPlayer().getP(), game.getPlayer().getPath().getAL().get(0).getP());
 				
-//				System.out.println(game.getPlayer().getP()+" is source ");
-//				System.out.println(game.getPlayer().getPath().getAL().get(0).getP() +" is dest");
-//				System.out.println(angle + " is angle");
-				if(game.GhostinArea(game.getPlayer().getP())) {
-					angle = (angle +90)%360;
-				}
 				
+				int k = game.GhostinArea(game.getPlayer().getP());
+				if(k>0) {
+					angle = m.findAngle(game.getPlayer().getP(), game.getALG().get(k).getP());
+					angle = (angle +135)%360;
+				}
+
 				play1.rotate(angle);
+				}
 			}
-//			System.out.println(game.getPlayer().getPath().getAL().size() +" is Path size");
-//			System.out.println(game.getALF().size() + " is Fruit size");
 
 		}
 		drawBlocks(g);
@@ -463,9 +458,10 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		drawGhost(g);
 
 	}
-
+	/**
+	 * This is a method to run the game in Manual Mode 
+	 */
 	private void RunUser() {
-		//		Map m = new Map(getWidth(),getHeight(),"Ariel1.png");
 		play1.start();
 		play1.rotate(0);
 		DrawBoard db = new DrawBoard(this);
@@ -474,12 +470,14 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 
 
 	}
+	/**
+	 * This is a method to run the game in Automatic Mode
+	 */
 	private void RunCPU() {
 		GameAlgo ga = new GameAlgo(game);
 		game =  ga.RunAlgo(game.getPlayer().getP());
 		isRunCPU = true;
 		play1.start();
-		//		play1.rotate(0);
 		DrawBoard db = new DrawBoard(this);
 		Thread t = new Thread(db);
 		t.start();		
@@ -562,6 +560,10 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		// TODO Auto-generated method stub
 
 	}
+	/**
+	 * This is a method to update everyone in the game where their location is
+	 * @param board is the game that was read from the Play 
+	 */
 	public void updateBoard(FromBoard board) {
 		clear();
 		for(int i=0;i<board.getALP().size();i++) {
@@ -584,6 +586,11 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			game = ga.RunAlgo(game.getPlayer().getP());
 		}
 	}
+	/**
+	 * This is a method to get the time that so far have passed
+	 * @param stats is a String with the statistics of the game
+	 * @return the time that has passed
+	 */
 	public double getTime(String stats) {
 		String split = ",";
 		String[] userInfo = stats.split(split);
@@ -591,6 +598,11 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		ans=ans.substring(11);
 		return Double.parseDouble(ans);
 	}
+	/**
+	 * This is a method to get the score that the Player has at that moment
+	 * @param stats is a String with the statistics of the game
+	 * @return the score of the Player
+	 */
 	public double getScore(String stats) {
 		String split = ",";
 		String[] userInfo = stats.split(split);
@@ -598,6 +610,11 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		ans=ans.substring(6);
 		return Double.parseDouble(ans);
 	}
+	/**
+	 * This is a method to get how much time left in the game
+	 * @param stats is a String with the statistics of the game
+	 * @return the amount of time left
+	 */
 	public double getTimeLeft(String stats) {
 		String split = ",";
 		String[] userInfo = stats.split(split);
@@ -616,66 +633,60 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		isPlayer = false;
 		playerAdded = false;
 	}
+
+	/**
+	 * This is a method to draw all the Blocks in the game
+	 * @param g
+	 */
 	private void drawBlocks(Graphics g) {
 		Map m = new Map(getWidth(),getHeight(),"Ariel1.png");
-
 		for(int i=0; i<game.getALB().size();i++) {
-			Point3D p1Pix = m.Coords2Pixels(game.getALB().get(i).getBL());
-			Point3D p2Pix = m.Coords2Pixels(game.getALB().get(i).getTR());
-			int dx = Math.abs(p2Pix.ix() - p1Pix.ix());
-			int dy = Math.abs(p2Pix.iy() - p1Pix.iy());
-			g.setColor(Color.BLACK);
-			g.fillRect(p1Pix.ix(),p2Pix.iy(),dx,dy);
+			game.getALB().get(i).drawBlock(g, m);
 		}
 	}
+	/**
+	 * This is a method to draw all the Packmen in the game
+	 * @param g
+	 */
 	private void drawPackmen(Graphics g) {
 		Map m = new Map(getWidth(),getHeight(),"Ariel1.png"); 
-
 		for(int i = 0 ; i<game.getALP().size();i++) {
-			int r = 30;
-			Point3D pointDraw =  m.Coords2Pixels(game.getALP().get(i).getP());
-			int px = pointDraw.ix() - (r/2);
-			int py = pointDraw.iy() - (r/2);
-
-			g.setColor(Color.YELLOW);
-			g.fillOval(px, py, r, r);
+			game.getALP().get(i).drawPackman(g, m);
 		}
 	}
+	/**
+	 * This is a method to draw all the Fruits in the game
+	 * @param g
+	 */
 	private void drawFruit(Graphics g) {
 		Map m = new Map(getWidth(),getHeight(),"Ariel1.png"); 
-
 		for(int i = 0 ; i<game.getALF().size();i++) {
-			int r = 10;
-			Point3D pointDraw =  m.Coords2Pixels(game.getALF().get(i).getP());
-			int px = pointDraw.ix()-(r/2);
-			int py = pointDraw.iy() - (r/2);
-
-			g.setColor(Color.MAGENTA);
-			g.fillOval(px, py, r, r);
+			game.getALF().get(i).drawFruit(g, m);
 		}
 	}
+	/**
+	 * This is a method to draw all the Ghosts in the game
+	 * @param g
+	 */
 	private void drawGhost(Graphics g) {
 		Map m = new Map(getWidth(),getHeight(),"Ariel1.png"); 
-
 		for(int i = 0 ; i<game.getALG().size();i++) {
-			int r = 15;
-			Point3D pointDraw =  m.Coords2Pixels(game.getALG().get(i).getP());
-			int px = pointDraw.ix() - (r/2);
-			int py = pointDraw.iy() - (r/2);
-			g.setColor(Color.RED);
-			g.fillOval(px, py, r, r);
+			game.getALG().get(i).drawGhost(g, m);
 
 		}
 	}
+	/**
+	 * This is a method to draw the Player in the game
+	 * @param g
+	 */
 	private void drawPlayer(Graphics g) {
 		Map m = new Map(getWidth(),getHeight(),"Ariel1.png"); 
-		int ra = 25;
-		Point3D drawPlayer =  m.Coords2Pixels(game.getPlayer().getP());
-		int dx = drawPlayer.ix() - (ra/2);
-		int dy = drawPlayer.iy() - (ra/2);
-		g.setColor(Color.BLUE);
-		g.fillOval(dx, dy, ra, ra);
+		game.getPlayer().drawPlayer(g, m);
 	}
+	/**
+	 * This is a method to draw the score of the Player in the game
+	 * @param g
+	 */
 	private void drawScore(Graphics g) {
 		double score = getScore(play1.getStatistics());
 		g.setColor(Color.RED);
@@ -685,6 +696,10 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		g.drawString("Score: "+ score,9,getHeight()-9);
 		g.drawString("Score: "+ score,8,getHeight()-8);
 	}
+	/**
+	 * This is a method to draw the time left in the game
+	 * @param g
+	 */
 	private void drawTimeLeft(Graphics g) {
 		double timeLeft = getTimeLeft(play1.getStatistics())/1000;
 		g.setColor(Color.RED);

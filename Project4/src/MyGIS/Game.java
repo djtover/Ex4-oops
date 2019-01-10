@@ -64,29 +64,23 @@ public class Game {
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
+	
 	/**
-	 * This is constuctor that can receive a csv File and convert it to a game
-	 * @param csvFile is the path of the file that you wanto be in the game
+	 * This is a method to check if there is a ghost in the area
+	 * @param gps1 is the point you want to see if there is a ghost near it
+	 * @return the index of the ghost in the Game ArrayList of Ghosts and if it doesn't exist then return -1;
 	 */
-//	public Game(String csvFile) {
-//		FromCsv fc = new FromCsv(csvFile); 
-//		ALF = fc.getALF();
-//		ALP = fc.getALP();
-//		time = 0;
-//		
-//	}
-	
-	
-	public boolean GhostinArea(Point3D gps1) {
+	public int GhostinArea(Point3D gps1) {
 		MyCoords mc = new MyCoords();
 		for(int i=0; i<this.ALG.size();i++) {
 			double dist = mc.distance3d(gps1, this.getALG().get(i).getP());
 			if(dist<4) {
-				return true;
+				return i;
 			}
 		}
-		return false;
+		return -1;
 	}
+	
 	public double getTime() {
 		return time;
 	}

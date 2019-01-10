@@ -1,6 +1,8 @@
 package MyGIS;
 
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Date;
 
 import Geom.Point3D;
@@ -16,8 +18,6 @@ public class Fruit {
 	private static int size=0;
 	private int id;
 	private long timeStamp;
-//	private MetaData timeFound;
-	private Packman pred;	
 	/**
 	 * This is constructor to build a new Fruit
 	 * @param lat input the latitude for the coordinates of the Fruit
@@ -31,7 +31,6 @@ public class Fruit {
 		id = size;
 		this.size++;
 		timeStamp= 0;
-		pred = null;
 	}
 	public Fruit(Point3D P , double Weight) {
 		p = P;
@@ -39,7 +38,6 @@ public class Fruit {
 		id = size;
 		this.size++;
 		timeStamp= 0;
-		pred = null;
 	}
 	/**
 	 * This is a constructor to build a Fruit from another Fruit
@@ -50,7 +48,20 @@ public class Fruit {
 		this.weight = other.getWeight();
 		this.size = other.getsize();
 		timeStamp = other.getTimeStamp();
-//		pred = other.getPred();
+	}
+	/**
+	 * This is a method to draw a Fruit
+	 * @param g is the graphics to draw
+	 * @param m is a Map to convert the points from coordinates to pixels
+	 */
+	public void drawFruit(Graphics g , Map m) {
+		int r = 10;
+		Point3D pointDraw =  m.Coords2Pixels(this.getP());
+		int px = pointDraw.ix()-(r/2);
+		int py = pointDraw.iy() - (r/2);
+
+		g.setColor(Color.MAGENTA);
+		g.fillOval(px, py, r, r);
 	}
 
 
@@ -81,12 +92,6 @@ public class Fruit {
 
 	public int getsize() {
 		return size;
-	}
-	public Packman getPred() {
-		return pred;
-	}
-	public void setPred(Packman pred) {
-		this.pred = pred;
 	}
 
 	public long getTimeStamp() {
