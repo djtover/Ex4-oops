@@ -22,6 +22,7 @@ Once you have chosen then press on Menu and click on Player as seen in the pictu
 Once you have clicked on Player then put the Player wherever you want on the board.
 After that you have either two options:
 1)Run in Manual Mode which means you get to control the Player.
+
 2)Run in Automatic Mode which means the Player will go automatically to eat the Fruit.
 
 After you choose which Mode you want the game will start and this is how the game will look.
@@ -34,10 +35,15 @@ After you choose which Mode you want the game will start and this is how the gam
 ### **Package MyGIS**
 
 1) Class Fruit is a class that implements the Fruit in the game.
+
 2) Class Packman is a class that implements the Packman in the game.
+
 3) Class Player is a class that implements the Player in the game
+
 4) Class Game is a class that holds all the players within the game.
+
 5) Class Path is an structure that holds all the Fruit the Player has eaten.
+
 6) Class Map is the map of the game. It holds the file you would like to use as the picture for the GUI and also has
 conversions like from pixels to coordinates and others.
  
@@ -47,6 +53,7 @@ conversions like from pixels to coordinates and others.
  
 ### **Package GUI**
 1) The Game implemented in a GUI
+
 2) DrawBoard is a Thread the updates the board each time before its should be drawn again
 
 
@@ -56,6 +63,7 @@ conversions like from pixels to coordinates and others.
 
 ### **Package Geom**
 1) Interface coords_coverter is an interface that represents a basic coordinate system converter.
+
 2) Class MyCoords is a class that implements the coords_converter interface.
 
 
