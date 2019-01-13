@@ -67,5 +67,16 @@ conversions like from pixels to coordinates and others.
 2) Class MyCoords is a class that implements the coords_converter interface.
 
 
+## **Comparison of Scores Between Automatic Mode and Manual Mode**
 
+### **Best Score in Example 8**
+In example 8 my best score was 45.6. I started from the top eating a few Fruit there but making sure to leave a path for the Pacman there to go on and I make make my way eating 3 more till I get to the all the Fruit on the left and eat those and then the game ended.
 
+### **Differences in Scores Between Automatic Mode and Manual Mode**
+As you can see in the photo below some times Automatic Mode does better than Manual Mode and sometimes the other way around.
+
+Based on my understanding of the game when Automatic Mode does better then it means the optimal way is the greedy way which is how Automatic Mode works on, and when you try to do the greedy way when playing manual it is very hard to make sure you are constantly on the optimal way. 
+
+When Manual Mode does better then it means the player has to consider the Pacmen and where to move to make sure 2 Pacmen or a player and a Pacman aren't going toward the same Fruit but rather splitting up to cover mre ground.
+
+![screenshot 174](https://user-images.githubusercontent.com/45014488/51083603-bb976200-1725-11e9-8123-6e66fe5cdf3b.png)
