@@ -77,6 +77,6 @@ As you can see in the photo below some times Automatic Mode does better than Man
 
 Based on my understanding of the game when Automatic Mode does better then it means the optimal way is the greedy way which is how Automatic Mode works on, and when you try to do the greedy way when playing manual it is very hard to make sure you are constantly on the optimal way. 
 
-When Manual Mode does better then it means the player has to consider the Pacmen and where to move to make sure 2 Pacmen or a player and a Pacman aren't going toward the same Fruit but rather splitting up to cover mre ground.
+When Manual Mode does better then it means the player has to consider the Pacmen and where to move to make sure 2 Pacmen or a player and a Pacman aren't going toward the same Fruit but rather splitting up to cover more ground.
 
 ![screenshot 174](https://user-images.githubusercontent.com/45014488/51083603-bb976200-1725-11e9-8123-6e66fe5cdf3b.png)
