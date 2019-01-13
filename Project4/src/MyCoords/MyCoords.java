@@ -98,9 +98,6 @@ public class MyCoords implements coords_converter {
 		else {
 			AED[0] = toDeg(azimuth);
 		}
-		
-//		double azimuth = Math.atan2(radY,radX);
-//			AED[0] = toDeg(azimuth);
 		AED[1] = elevation;
 		AED[2] = r;
 

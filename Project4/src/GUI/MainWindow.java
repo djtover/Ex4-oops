@@ -61,6 +61,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 	/**
 	 * 
 	 */
+	private DBConnection dbc = new DBConnection();
 	private BufferedImage myImage;
 	private boolean isPlayer;
 	private boolean playerAdded;
@@ -153,7 +154,6 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				//				run();
 
 				isRunUser =true;
 				isRunCPU = false; 
@@ -176,14 +176,10 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				//				run();
-				//				isRunCPU = true;
 				isRunUser =false;
 				isResized = false;
 				isPlayer = false;
 				if(playerAdded) {
-					//					GameAlgo ga = new GameAlgo(game);
-					//					ga.RunAlgo(game.getPlayer().getP());
 					RunCPU();
 				}
 				else {
@@ -216,6 +212,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
+				
+				dbc.setGameHash(2128259830);
+				
 				play1 = new Play("data/Ex4_OOP_example1.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -234,6 +233,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
+				dbc.setGameHash(1149748017);
 				play1 = new Play("data/Ex4_OOP_example2.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -252,6 +252,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
+				dbc.setGameHash(-683317070);
 				play1 = new Play("data/Ex4_OOP_example3.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -270,6 +271,8 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
+				dbc.setGameHash(1193961129);
+
 				play1 = new Play("data/Ex4_OOP_example4.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -288,6 +291,8 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
+				dbc.setGameHash(1577914705);
+
 				play1 = new Play("data/Ex4_OOP_example5.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -306,6 +311,8 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
+				dbc.setGameHash(-1315066918);
+
 				play1 = new Play("data/Ex4_OOP_example6.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -324,6 +331,8 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
+				dbc.setGameHash(-1377331871);
+
 				//				repaint();
 				play1 = new Play("data/Ex4_OOP_example7.csv");
 				play1.setIDs(327339701);
@@ -343,7 +352,8 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-				//				repaint();
+				dbc.setGameHash(306711633);
+
 				play1 = new Play("data/Ex4_OOP_example8.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -362,7 +372,8 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				// TODO Auto-generated method stub
 				falseEverything();
 				clear();
-				//				repaint();
+				dbc.setGameHash(919248096);
+
 				play1 = new Play("data/Ex4_OOP_example9.csv");
 				play1.setIDs(327339701);
 				FromBoard board = new FromBoard(play1.getBoard());
@@ -437,7 +448,7 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 				int k = game.GhostinArea(game.getPlayer().getP());
 				if(k>0) {
 					angle = m.findAngle(game.getPlayer().getP(), game.getALG().get(k).getP());
-					angle = (angle +135)%360;
+					angle = (angle +130)%360;
 				}
 
 				play1.rotate(angle);
@@ -621,6 +632,9 @@ public class MainWindow extends JFrame implements MouseListener, ComponentListen
 		String ans = userInfo[3];
 		ans=ans.substring(11);
 		return Double.parseDouble(ans);
+	}
+	public DBConnection getDB() {
+		return this.dbc;
 	}
 	public void clear() {
 		game.clear();

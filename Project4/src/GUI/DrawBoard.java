@@ -26,22 +26,26 @@ public class DrawBoard implements Runnable{
 		double time=100000;
 		double totalTime = mw.getTime(mw.getPlay1().getStatistics());
 		while( !mw.getPointsFruit().isEmpty() && totalTime<time ) {
-			mw.repaint();
+//			mw.repaint();
 			ArrayList<String> board_data = mw.getPlay1().getBoard();
 			FromBoard fb = new FromBoard(board_data);
 			mw.updateBoard(fb);
 			totalTime = mw.getTime(mw.getPlay1().getStatistics());
 			System.out.println(mw.getPlay1().getStatistics());
 			
-//			mw.repaint();
+			mw.repaint();
 			try {
-				Thread.sleep(100);
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 		System.out.println("End Game:"+mw.getPlay1().getStatistics());
+		DBConnection dbConnect = mw.getDB();
+		double score = mw.getScore(mw.getPlay1().getStatistics());
+		dbConnect.setScore(score);
+		System.out.println("You ranked "+dbConnect.rank() +"!!");
 		mw.getPlay1().stop();
 		mw.clear();
 	}

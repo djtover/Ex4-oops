@@ -13,29 +13,6 @@ import MyGIS.Packman;
  *
  */
 public class ToCsv {
-//	public static void main(String [] args) {
-//		Packman p1 = new Packman(32.10452628971962,35.20409047113997,0.0,1,1);
-//        Packman p2 = new Packman(32.104470411214955,35.21009834992785,0.0,1,1);
-//		Fruit f1 = new Fruit(32.10423447975078,35.204555366522364,0.0 ,1);
-//		Fruit f2 = new Fruit( 32.103688112149534,35.204362256132754,0.0,1);
-//		Fruit f3 = new Fruit(32.10333421495327,35.203911665223664,0.0,1);
-//		Fruit f4 = new Fruit( 32.10441453271028,35.20954047546898,0.0,1);
-//		Fruit f5 = new Fruit(32.10385574766355,35.20964775901876,0.0,1);
-//		Fruit f6 = new Fruit( 32.1033838847352,35.20973358585859,0.0,1);
-//
-//		ArrayList<Packman> alp = new ArrayList<Packman>();
-//		ArrayList <Fruit> alf = new ArrayList<Fruit>();
-//		alp.add(p1);
-//		alp.add(p2);
-//		alf.add(f1);
-//		alf.add(f2);
-////		alf.add(f1);
-//		alf.add(f3);
-//		alf.add(f4);
-//		alf.add(f5);
-//		alf.add(f6);
-//		ToCsv tc = new ToCsv("C:\\Users\\djtov\\Documents\\hello1.csv",alp,alf);
-//	}
 /**
  * This is a constructor for the ToCSv class
  * @param fileName the name of the file you want it to be saved as
@@ -83,8 +60,6 @@ public class ToCsv {
 			sb.append(alp.get(i).getP().z());
 			sb.append(",");
 			sb.append(alp.get(i).getSpeed());
-//			sb.append(",");
-//			sb.append(alp.get(i).getRadius());
 			sb.append("\n");
 		}
 

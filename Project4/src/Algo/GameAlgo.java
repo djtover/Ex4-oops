@@ -35,7 +35,6 @@ public class GameAlgo {
 	 * @return The Game with the Player having a path of where it needs to go to next 
 	 */
 	public Game RunAlgo(Point3D startingPoint) {
-		long start = System.currentTimeMillis();
 		ArrayList<Point3D> points = cornersInBoxes();
 		Graph graph = buildGraph(points);
 		MyCoords mc = new MyCoords();
@@ -84,8 +83,6 @@ public class GameAlgo {
 		}
 		
 		game.setPlayer(playerCopy);
-		long end = System.currentTimeMillis();
-		System.out.println(end - start + " milliseconds");
 		return game;
 	}
 	/**
