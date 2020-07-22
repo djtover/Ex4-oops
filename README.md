@@ -1,4 +1,3 @@
-# Ex4-oops
 # **Project 4 - Pacman Game**
 
 ## **Understanding the Game**
